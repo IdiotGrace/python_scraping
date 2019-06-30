@@ -1,0 +1,11 @@
+# section 1
+User-agent: BadCrawler
+Disallow: /
+
+# section 2
+User-agent: *
+Crawl-delay: 5
+Dsiallow: /trap
+
+# section 3
+Sitemap: http://example.python-scraping.com/sitemap.xml

@@ -5,6 +5,7 @@ def Download(url, num_retries=2):
 	print('Downloading:', url)
 	try:
 		html = urllib.request.urlopen(url).read()
+		request.add_header('User-agent', user_agent)
 	except(URLError, HTTPError, ContentTooShortError) as e:
 		print('Downloading error:', e.reason)
 		html = None

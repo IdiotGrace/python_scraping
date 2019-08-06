@@ -39,7 +39,9 @@ def link_crawler(start_url, link_regex):
         html = download(url)
         if not html:
             continue
+        # filter for links matching our regular expression
         for link in get_links(html):
+            #print(link)
             if re.match(link_regex, link):
                 abs_link = urljoin(start_url, link)
                 if abs_link not in seen:
@@ -47,4 +49,4 @@ def link_crawler(start_url, link_regex):
                     crawl_queue.append(abs_link)
 
 if __name__ == '__main__':
-    link_crawler('http://example.python-scraping.com', '/(index|view)/')
+    link_crawler('http://example.python-scraping.com', '(/places/default/index/|/places/default/view/)')
